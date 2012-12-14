@@ -1,0 +1,4 @@
+Put these files in this folder:
+- LeapJava.jar
+- lib_LeapJava.dylib
+- libLeap.dylib
