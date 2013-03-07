@@ -22,8 +22,8 @@ class SampleListener extends Listener {
     // Get the most recent frame and report some basic information
 
     Frame frame = controller.frame();
-    HandArray hands = frame.hands();
-    long numHands = hands.size();
+    HandList hands = frame.hands();
+    long numHands = hands.count();
     System.out.println("Frame id: " + frame.id()
       + ", timestamp: " + frame.timestamp()
       + ", hands: " + numHands);
@@ -37,17 +37,17 @@ class SampleListener extends Listener {
       Hand hand = hands.get(0);
 
       // Check if the hand has any fingers
-      FingerArray fingers = hand.fingers();
-      long numFingers = fingers.size();
+      FingerList fingers = hand.fingers();
+      long numFingers = fingers.count();
       if (numFingers >= 1) {
         // Calculate the hand's average finger tip position
         Vector pos = new Vector(0, 0, 0);
         for (int i = 0; i < numFingers; ++i) {
           Finger finger = fingers.get(i);
-          Ray tip = finger.tip();
-          pos.setX(pos.getX() + tip.getPosition().getX());
-          pos.setY(pos.getY() + tip.getPosition().getY());
-          pos.setZ(pos.getZ() + tip.getPosition().getZ());
+          Vector tip = finger.tipPosition();
+          pos.setX(pos.getX() + tip.getX());
+          pos.setY(pos.getY() + tip.getY());
+          pos.setZ(pos.getZ() + tip.getZ());
         }
         pos = new Vector(pos.getX()/numFingers, pos.getY()/numFingers, pos.getZ()/numFingers);
         //        println("Hand has " + numFingers + " fingers with average tip position"
