@@ -13,7 +13,7 @@ To use the Leap Motion controller, add the following files to Fruit_Ninja/code:
 - lib_LeapJava.dylib
 - libLeap.dylib
 
-Then to run it, just run Fruit_Ninja/FruitNinja.pde
+Then to run it, just run Fruit_Ninja/Fruit_Ninja.pde
 
 TODO:
 - Add hit counter
